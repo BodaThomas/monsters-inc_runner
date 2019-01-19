@@ -47,8 +47,8 @@ int game(void)
                 sfRenderWindow_close(game.window);
         }
         sfRenderWindow_clear(game.window, sfBlack);
-        posX = posX - 1;
-        posX2 = posX2 - 1;
+        posX = posX - 0.1;
+        posX2 = posX2 - 0.1;
         if (posX < -1920)
             posX = 1920;
         if (posX2 < -1920)
