@@ -5,6 +5,16 @@
 ** The .h file of the my_runner project
 */
 
+#ifndef RUNNER_H
+#define RUNNER_H
+
+#include "game.h"
+#include <SFML/Audio.h>
+#include <SFML/Graphics.h>
+
+int init_game(game_t *game);
 int game(void);
 void help(void);
 void print_error(int mode);
+
+#endif

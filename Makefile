@@ -19,7 +19,7 @@ all:		$(NAME)
 
 $(NAME):	$(OBJ)
 		make -C lib/my
-		gcc $(OBJ) -o $(NAME) $(CFLAGS) -Llib/my -lmy
+		gcc $(OBJ) -o $(NAME) $(CFLAGS) -Llib/my -lmy -lcsfml-audio -lcsfml-graphics -lcsfml-system -lcsfml-window
 		rm $(OBJ)
 
 clean:
