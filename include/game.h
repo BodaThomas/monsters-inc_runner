@@ -22,8 +22,13 @@ typedef struct s_game {
     sfSprite* sky_sprite;
     sfTexture* road;
     sfSprite* road_sprite;
+    sfSprite* road_sprite2;
     sfTexture* houses;
     sfSprite* houses_sprite;
 } game_t;
+
+typedef struct s_background {
+
+} background_t;
 
 #endif

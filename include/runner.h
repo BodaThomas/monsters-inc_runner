@@ -12,6 +12,7 @@
 #include <SFML/Audio.h>
 #include <SFML/Graphics.h>
 
+void set_background(game_t *game);
 int init_game(game_t *game);
 int game(void);
 void help(void);

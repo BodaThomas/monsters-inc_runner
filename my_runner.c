@@ -22,12 +22,11 @@ int init_game(game_t *game)
     game->houses = sfTexture_createFromFile(HOUSES_PATH, NULL);
     game->sky_sprite = sfSprite_create();
     game->road_sprite = sfSprite_create();
+    game->road_sprite2 = sfSprite_create();
     game->houses_sprite = sfSprite_create();
     if (!game->window || !game->sky || !game->sky_sprite)
         return (84);
-    sfSprite_setTexture(game->sky_sprite, game->sky, sfTrue);
-    sfSprite_setTexture(game->road_sprite, game->road, sfTrue);
-    sfSprite_setTexture(game->houses_sprite, game->houses, sfTrue);
+    set_background(game);
     return (0);
 }
 
@@ -35,6 +34,10 @@ int game(void)
 {
     sfEvent event;
     game_t game;
+    float posX = 0;
+    float posX2 = 1920;
+    sfVector2f road_pos = {posX, 0};
+    sfVector2f road_pos2 = {posX2, 0};
 
     if (init_game(&game) == 84)
         return (84);
@@ -44,14 +47,23 @@ int game(void)
                 sfRenderWindow_close(game.window);
         }
         sfRenderWindow_clear(game.window, sfBlack);
+        posX = posX - 1;
+        posX2 = posX2 - 1;
+        if (posX < -1920)
+            posX = 1920;
+        if (posX2 < -1920)
+            posX2 = 1920;
+        road_pos.x = posX;
+        road_pos2.x = posX2;
+        sfSprite_setPosition(game.road_sprite, road_pos);
+        sfSprite_setPosition(game.road_sprite2, road_pos2);
         sfRenderWindow_drawSprite(game.window, game.sky_sprite, NULL);
         sfRenderWindow_drawSprite(game.window, game.road_sprite, NULL);
+        sfRenderWindow_drawSprite(game.window, game.road_sprite2, NULL);
         sfRenderWindow_drawSprite(game.window, game.houses_sprite, NULL);
         sfRenderWindow_display(game.window);
     }
-    sfSprite_destroy(game.sky_sprite);
-    sfSprite_destroy(game.road_sprite);
-    sfSprite_destroy(game.houses_sprite);
+    destroy_sprite(game);
     return (0);
 }
 

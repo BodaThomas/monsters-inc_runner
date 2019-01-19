@@ -8,6 +8,8 @@
 NAME	=	my_runner
 
 SRC	=	my_runner.c \
+		background.c \
+		sprite.c \
 		help.c \
 		error.c
 
