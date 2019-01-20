@@ -16,4 +16,5 @@ void destroy_sprite(game_t *game)
     sfSprite_destroy(game->road_sprite);
     sfSprite_destroy(game->road_sprite2);
     sfSprite_destroy(game->houses_sprite);
+    sfSprite_destroy(game->houses_sprite2);
 }

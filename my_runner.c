@@ -25,6 +25,7 @@ int init_game(game_t *game)
     game->road_sprite = sfSprite_create();
     game->road_sprite2 = sfSprite_create();
     game->houses_sprite = sfSprite_create();
+    game->houses_sprite2 = sfSprite_create();
     if (!game->window || !game->sky || !game->sky_sprite || !game->music)
         return (84);
     set_background(game);
@@ -39,8 +40,12 @@ int game(void)
     game_t game;
     float road_posX = 0;
     float road_posX2 = 1920;
+    float houses_posX = 0;
+    float houses_posX2 = 1920;
     sfVector2f road_pos = {road_posX, 0};
     sfVector2f road_pos2 = {road_posX2, 0};
+    sfVector2f houses_pos = {houses_posX, 0};
+    sfVector2f houses_pos2 = {houses_posX2, 0};
 
     if (init_game(&game) == 84)
         return (84);
@@ -49,21 +54,32 @@ int game(void)
             if (event.type == sfEvtClosed)
                 sfRenderWindow_close(game.window);
         }
-        road_posX2 = road_posX2 - 0.1;
-        road_posX = road_posX - 0.1;
+        road_posX2 = road_posX2 - 0.2;
+        road_posX = road_posX - 0.2;
+        houses_posX2 = houses_posX2 - 0.05;
+        houses_posX = houses_posX - 0.05;
         if (road_posX < -1920)
             road_posX = 1920;
         if (road_posX2 < -1920)
             road_posX2 = 1920;
+        if (houses_posX < -1920)
+            houses_posX = 1920;
+        if (houses_posX2 < -1920)
+            houses_posX2 = 1920;
         road_pos.x = road_posX;
         road_pos2.x = road_posX2;
+        houses_pos.x = houses_posX;
+        houses_pos2.x = houses_posX2;
         sfRenderWindow_clear(game.window, sfBlack);
         sfSprite_setPosition(game.road_sprite, road_pos);
         sfSprite_setPosition(game.road_sprite2, road_pos2);
+        sfSprite_setPosition(game.houses_sprite, houses_pos);
+        sfSprite_setPosition(game.houses_sprite2, houses_pos2);
         sfRenderWindow_drawSprite(game.window, game.sky_sprite, NULL);
         sfRenderWindow_drawSprite(game.window, game.road_sprite, NULL);
         sfRenderWindow_drawSprite(game.window, game.road_sprite2, NULL);
         sfRenderWindow_drawSprite(game.window, game.houses_sprite, NULL);
+        sfRenderWindow_drawSprite(game.window, game.houses_sprite2, NULL);
         sfRenderWindow_display(game.window);
     }
     destroy_sprite(game);
