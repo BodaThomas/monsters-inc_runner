@@ -17,6 +17,7 @@ int init_game(game_t *game)
     game->mode.height = 1080;
     game->mode.bitsPerPixel = 32;
     game->window = sfRenderWindow_create(game->mode, "The Adventure", sfResize | sfClose, NULL);
+    game->music = sfMusic_createFromFile("sounds/theme.ogg");
     game->sky = sfTexture_createFromFile(SKY_PATH, NULL);
     game->road = sfTexture_createFromFile(ROAD_PATH, NULL);
     game->houses = sfTexture_createFromFile(HOUSES_PATH, NULL);
@@ -24,9 +25,11 @@ int init_game(game_t *game)
     game->road_sprite = sfSprite_create();
     game->road_sprite2 = sfSprite_create();
     game->houses_sprite = sfSprite_create();
-    if (!game->window || !game->sky || !game->sky_sprite)
+    if (!game->window || !game->sky || !game->sky_sprite || !game->music)
         return (84);
     set_background(game);
+    sfMusic_play(game->music);
+    sfMusic_setLoop(game->music, sfTrue);
     return (0);
 }
 
@@ -34,10 +37,10 @@ int game(void)
 {
     sfEvent event;
     game_t game;
-    float posX = 0;
-    float posX2 = 1920;
-    sfVector2f road_pos = {posX, 0};
-    sfVector2f road_pos2 = {posX2, 0};
+    float road_posX = 0;
+    float road_posX2 = 1920;
+    sfVector2f road_pos = {road_posX, 0};
+    sfVector2f road_pos2 = {road_posX2, 0};
 
     if (init_game(&game) == 84)
         return (84);
@@ -46,15 +49,15 @@ int game(void)
             if (event.type == sfEvtClosed)
                 sfRenderWindow_close(game.window);
         }
+        road_posX2 = road_posX2 - 0.1;
+        road_posX = road_posX - 0.1;
+        if (road_posX < -1920)
+            road_posX = 1920;
+        if (road_posX2 < -1920)
+            road_posX2 = 1920;
+        road_pos.x = road_posX;
+        road_pos2.x = road_posX2;
         sfRenderWindow_clear(game.window, sfBlack);
-        posX = posX - 0.1;
-        posX2 = posX2 - 0.1;
-        if (posX < -1920)
-            posX = 1920;
-        if (posX2 < -1920)
-            posX2 = 1920;
-        road_pos.x = posX;
-        road_pos2.x = posX2;
         sfSprite_setPosition(game.road_sprite, road_pos);
         sfSprite_setPosition(game.road_sprite2, road_pos2);
         sfRenderWindow_drawSprite(game.window, game.sky_sprite, NULL);

@@ -18,6 +18,7 @@
 typedef struct s_game {
     sfVideoMode mode;
     sfRenderWindow* window;
+    sfMusic* music;
     sfTexture* sky;
     sfSprite* sky_sprite;
     sfTexture* road;
