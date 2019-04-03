@@ -5,10 +5,7 @@
 ** The file who manage the background of the game
 */
 
-#include <SFML/Graphics.h>
-#include "lib.h"
 #include "runner.h"
-#include "game.h"
 
 void launch_parallax(game_t *game)
 {

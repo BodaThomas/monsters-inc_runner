@@ -9,6 +9,7 @@
 #define RUNNER_H
 
 #include "game.h"
+#include "lib.h"
 #include <SFML/Audio.h>
 #include <SFML/Graphics.h>
 

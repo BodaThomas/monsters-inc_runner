@@ -11,6 +11,7 @@
 #define SKY_PATH "textures/backgrounds/sky.png"
 #define ROAD_PATH "textures/backgrounds/road.png"
 #define HOUSES_PATH "textures/backgrounds/houses.png"
+#define PLAYER_PATH "textures/player.png"
 
 #include <SFML/Audio.h>
 #include <SFML/Graphics.h>
@@ -19,6 +20,8 @@ typedef struct s_game {
     sfVideoMode mode;
     sfRenderWindow* window;
     sfMusic* music;
+    sfTexture* player;
+    sfSprite* player_sprite;
     sfTexture* sky;
     sfSprite* sky_sprite;
     sfTexture* road;

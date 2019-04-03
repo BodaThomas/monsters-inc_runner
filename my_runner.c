@@ -5,11 +5,7 @@
 ** The main file of the my_runner project
 */
 
-#include <SFML/Audio.h>
-#include <SFML/Graphics.h>
-#include "lib.h"
 #include "runner.h"
-#include "game.h"
 
 int init_game(game_t *game)
 {

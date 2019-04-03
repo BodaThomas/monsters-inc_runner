@@ -5,10 +5,7 @@
 ** The file who manage sprites of the game
 */
 
-#include <SFML/Graphics.h>
-#include "lib.h"
 #include "runner.h"
-#include "game.h"
 
 void destroy_sprite(game_t *game)
 {

@@ -5,7 +5,6 @@
 ** The help function of the my_runner project
 */
 
-#include "lib.h"
 #include "runner.h"
 
 void help(void)

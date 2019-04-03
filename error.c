@@ -5,7 +5,6 @@
 ** The error function of the my_runner project
 */
 
-#include "lib.h"
 #include "runner.h"
 
 void print_error(int mode)
