@@ -7,11 +7,11 @@
 
 NAME	=	my_runner
 
-SRC	=	my_runner.c \
-		background.c \
-		sprite.c \
-		help.c \
-		error.c
+SRC	=	src/my_runner.c \
+		src/background.c \
+		src/sprite.c \
+		src/help.c \
+		src/error.c
 
 OBJ	=	$(SRC:.c=.o)
 
