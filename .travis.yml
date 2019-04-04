@@ -1,0 +1,11 @@
+language: c
+os: osx
+
+before_script:
+  - brew install csfml
+
+script:
+  - make
+
+compiler:
+  - gcc
