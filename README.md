@@ -1,4 +1,4 @@
-# The Monsters Inc Runner <img src="https://vignette.wikia.nocookie.net/logopedia/images/4/44/Avh7xonsdf111.png/revision/latest?cb=20181121065911" alt="Monsters Inc Logo" width="150"/>
+# The Monsters Inc Runner <img align="right" src="https://vignette.wikia.nocookie.net/logopedia/images/4/44/Avh7xonsdf111.png/revision/latest?cb=20181121065911" alt="Monsters Inc Logo" width="150"/>
 
 The Monsters Inc Runner is a small video game based on the rules of a finite Endless Running
 Game, and with the theme of the *Monsters Inc (Disney Pixar)* movie.
