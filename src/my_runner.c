@@ -13,7 +13,7 @@ int init_game(game_t *game)
     game->mode.height = 1080;
     game->mode.bitsPerPixel = 32;
     game->window = sfRenderWindow_create(game->mode, "The Adventure", sfResize | sfClose, NULL);
-    game->music = sfMusic_createFromFile("sounds/theme.ogg");
+    game->music = sfMusic_createFromFile("assets/sounds/theme.ogg");
     game->sky = sfTexture_createFromFile(SKY_PATH, NULL);
     game->road = sfTexture_createFromFile(ROAD_PATH, NULL);
     game->houses = sfTexture_createFromFile(HOUSES_PATH, NULL);

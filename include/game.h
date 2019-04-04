@@ -8,10 +8,10 @@
 #ifndef GAME_H
 #define GAME_H
 
-#define SKY_PATH "textures/backgrounds/sky.png"
-#define ROAD_PATH "textures/backgrounds/road.png"
-#define HOUSES_PATH "textures/backgrounds/houses.png"
-#define PLAYER_PATH "textures/player.png"
+#define SKY_PATH "assets/textures/backgrounds/sky.png"
+#define ROAD_PATH "assets/textures/backgrounds/road.png"
+#define HOUSES_PATH "assets/textures/backgrounds/houses.png"
+#define PLAYER_PATH "assets/textures/player.png"
 
 #include <SFML/Audio.h>
 #include <SFML/Graphics.h>
